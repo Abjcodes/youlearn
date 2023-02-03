@@ -1,18 +1,16 @@
-import { Auth, ThemeSupa } from '@supabase/auth-ui-react'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
-import Account from '../components/Account'
+import Videos from '../components/Videos.js'
+
 
 const Home = () => {
-  const session = useSession()
-  const supabase = useSupabaseClient()
-
   return (
-    <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? (
-        <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} theme="dark" providers={['google', 'github']}/>
-      ) : (
-        <Account session={session} />
-      )}
+    <div className='w-full px-6'>
+    <div className=''>
+      <h1 className='text-lg font-semibold py-3'>
+        Popular Videos
+      </h1>
+      <Videos />
+    </div>
     </div>
   )
 }
