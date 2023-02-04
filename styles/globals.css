@@ -2,15 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-.ProseMirror > * + * {
+/* .ProseMirror > * + * {
     margin-top: 0.75em;
-  }
+  } */
 .ProseMirror ul, .ProseMirror ol {
-padding: 0 1rem;
+padding: 0 2rem;
+line-height: 1em;
 }
 .ProseMirror h1, .ProseMirror h2, .ProseMirror h3, .ProseMirror h4, .ProseMirror h5, .ProseMirror h6 {
 line-height: 1.1;
 }
+
 .ProseMirror code {
 background-color: rgba(97, 97, 97, 0.1);
 color: #616161;

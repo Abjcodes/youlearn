@@ -22,7 +22,7 @@ const TextEditor= ({id}) => {
         ],
         editorProps: {
             attributes: {
-              class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl m-3 focus:outline-none',
+              class: 'prose m-3 focus:outline-none',
             },
           },
         
