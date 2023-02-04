@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Router from "next/router";
 
-const API_KEY = "AIzaSyCG_wDJtbBbU2t23YwyF4TniR43V899JFM";
-const searchQuery = "UIUX";
-const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&key=${API_KEY}`;
 
-function Videos() {
+function Videos({query}) {
+  const api_key = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
+  const searchQuery = (query == '') ? "UIUX" : query ;
+  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&key=${api_key}`;
+
   const [videos, setVideos] = useState([]);
-
   useEffect(() => {
     fetch(url)
       .then(response => response.json())
@@ -17,20 +17,20 @@ function Videos() {
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  }, [query]);
 
-  const vidIDArr =  [
-    "Ks-_Mh1QhMc",
-    "JGwWNGJdvx8",
-    "2Vv-BfVoq4g",
-    "pRpeEdMmmQ0",
-    "6ZfuNTqbHE8",
-    "JwYX52BP2Sk",
-    "2uOgDYKdGc4",
-    "3tmd-ClpJxA",
-    "6Dh-RL__uN4",
-    "qzYgSecGQww"
-  ];
+  // const vidIDArr =  [
+  //   "Ks-_Mh1QhMc",
+  //   "JGwWNGJdvx8",
+  //   "2Vv-BfVoq4g",
+  //   "pRpeEdMmmQ0",
+  //   "6ZfuNTqbHE8",
+  //   "JwYX52BP2Sk",
+  //   "2uOgDYKdGc4",
+  //   "3tmd-ClpJxA",
+  //   "6Dh-RL__uN4",
+  //   "qzYgSecGQww"
+  // ];
 
   return (
     <div className="container mx-auto">

@@ -29,18 +29,16 @@ const TextEditor= ({id}) => {
         // content: []
       });
 
-      const createNotes = async () => {
+      const saveNotes = async () => {
         setLoading(true);
         try {
             const{data, error} = await supabase
                 .from("notes")
-                .insert({
+                .upsert({
                   user_id: user.email,
                   video_id: id,
                   notes: editor.getHTML()
                 })
-                .single();
-
             if(error) throw error;
         } catch (error) {
             alert(error.message);
@@ -49,23 +47,7 @@ const TextEditor= ({id}) => {
         }
       };
 
-      const updateNotes = async () => {
-        setLoading(true);
-        try {
-            const{data, error} = await supabase
-                .from("notes")
-                .update({
-                  notes: editor.getHTML()
-                })
-                .eq("video_id", id)
-                .single();
-            if(error) throw error;
-        } catch (error) {
-            alert(error.message);
-        } finally {
-          setLoading(false);
-        }
-      };
+
     
       return (
         <div className="flex">
@@ -81,6 +63,7 @@ const TextEditor= ({id}) => {
               allowFullScreen
             />
           </div>
+          {user ?  
           <div className="w-1/4 border-2 mr-2 border-gray-600 flex flex-col justify-between">
           <div className="h-[34rem]  overflow-auto">
             <h1 className="p-3 text-lg font-bold">
@@ -90,15 +73,16 @@ const TextEditor= ({id}) => {
           </div>
           <button type="button" 
           className="text-white bg-black hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium text-sm px-5 py-2.5 text-center mx-2 mb-2"
-          onClick={() => updateNotes()}>
-            {loading ? "Updating..." : "Update notes"}
-          </button>
-          <button type="button" 
-          className="text-white bg-black hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium text-sm px-5 py-2.5 text-center mx-2 mb-2"
-          onClick={() => createNotes()}>
+          onClick={() => saveNotes()}>
             {loading ? "Saving..." : "Save notes"}
           </button>
-            </div>
+            </div> 
+            :
+            <div> 
+              <p>
+                Please login to take and save notes
+              </p>
+            </div>}
         </div>
       )
 };
