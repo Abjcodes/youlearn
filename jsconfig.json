@@ -3,7 +3,7 @@
       "baseUrl": ".",
       "paths": {
         "lodash/debounce": [
-          "/node_modules/lodash/debounce.js"
+          "node_modules/lodash/debounce.js"
         ]
       }
     }
