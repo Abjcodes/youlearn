@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "lodash/debounce": [
+          "/node_modules/lodash/debounce.js"
+        ]
+      }
+    }
+  }
+  
