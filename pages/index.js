@@ -15,9 +15,8 @@ const Home = () => {
 
   return (
     <div className='w-full px-6'>
-    <div className=''>
       <div className="flex items-center my-8">
-            <div className="flex border border-purple-200 rounded">
+            <div className="flex w-full rounded gap-3">
                 <input
                     type="text"
                     className="block w-full px-4 py-2 text-black bg-white border rounded-md"
@@ -34,7 +33,6 @@ const Home = () => {
         {(finalQuery == '') ? "Popular videos" : "Top results"}
       </h1>
       <Videos query={finalQuery}/>
-    </div>
     </div>
   )
 }

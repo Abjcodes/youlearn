@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Router from "next/router";
+import VideoCard from "./VideoCard";
 
 
 function Videos({query}) {
@@ -36,20 +37,64 @@ function Videos({query}) {
     <div className="container mx-auto">
     <div className="flex flex-wrap flex-col sm:flex-row">
       {videos.map(video => (
-        <div key={video.id.videoId} className="w-1/4 px-2 pb-2">
-          <div className="bg-white rounded shadow-lg overflow-hidden" 
-          onClick={() => {
-          Router.push(`/viewer?id=${video.id.videoId}`);
-          console.log("This is clicked");}}>
-            <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
-            <p>
-              {video.snippet.title}
-            </p>
-          </div>
-        </div>
+        <VideoCard video={video} key={video}/>
       ))}
     </div>
   </div>
+  // <div className="container mx-auto">
+  //   <div className="flex flex-wrap flex-col sm:flex-row">
+
+  //   <div className="w-1/4 px-2 pb-2">
+  //         <div className="bg-white rounded shadow-lg overflow-hidden" 
+  //         onClick={() => {
+  //         Router.push(`/viewer?id=${'Ks-_Mh1QhMc'}`);
+  //         console.log("This is clicked");}}>
+  //           <img src="http://img.youtube.com/vi/Ks-_Mh1QhMc/hqdefault.jpg"/>
+  //           <p>
+  //             This is a long titleKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMc
+  //           </p>
+  //         </div>
+  //     </div>
+
+  //     <div className="w-1/4 px-2 pb-2">
+  //         <div className="bg-white rounded shadow-lg overflow-hidden sm:h-[22rem]" 
+  //         onClick={() => {
+  //         Router.push(`/viewer?id=${'Ks-_Mh1QhMc'}`);
+  //         console.log("This is clicked");}}>
+  //           <img src="http://img.youtube.com/vi/Ks-_Mh1QhMc/hqdefault.jpg"/>
+  //           <p className="my-2 mx-1 text-sm font-medium">
+  //           The Reluctant Heroes
+  //           </p>
+  //         </div>
+  //     </div>
+
+  //     <div className="w-1/4 px-2 pb-2">
+  //         <div className="bg-white rounded shadow-lg overflow-hidden" 
+  //         onClick={() => {
+  //         Router.push(`/viewer?id=${'Ks-_Mh1QhMc'}`);
+  //         console.log("This is clicked");}}>
+  //           <img src="http://img.youtube.com/vi/Ks-_Mh1QhMc/hqdefault.jpg"/>
+  //           <p>
+  //             This is a long titleKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMc
+  //           </p>
+  //         </div>
+  //     </div>
+
+  //     <div className="w-1/4 px-2 pb-2">
+  //         <div className="bg-white rounded shadow-lg overflow-hidden" 
+  //         onClick={() => {
+  //         Router.push(`/viewer?id=${'Ks-_Mh1QhMc'}`);
+  //         console.log("This is clicked");}}>
+  //           <img src="http://img.youtube.com/vi/Ks-_Mh1QhMc/hqdefault.jpg"/>
+  //           <p>
+  //             This is a long titleKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMcKs-_Mh1QhMc
+  //           </p>
+  //         </div>
+  //     </div>
+
+  //   </div>
+
+  // </div>
   );
 }
 

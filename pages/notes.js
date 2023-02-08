@@ -29,11 +29,11 @@ const NotesPage = () => {
       {user ? 
       notes.map(note => (
         <div key={note.user_id + note.video_id} className="w-full lg:w-1/3 p-4">
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden h-48">
             <div className="p-6">
-              <h2 className="text-lg font-medium">User ID: {note.user_id}</h2>
-              <h3 className="text-base font-medium">Video ID: {note.video_id}</h3>
-              <div className="content" dangerouslySetInnerHTML={{__html: note.notes}}></div>
+              <h2 className="text-base font-medium">{note.video_title}</h2>
+              <h3 className="text-sm py-1 text-slate-600">{note.created_at}</h3>
+              <div className="content text-base text-gray-600 overflow-hidden" dangerouslySetInnerHTML={{__html: note.notes}}></div>
             </div>
           </div>
         </div>
