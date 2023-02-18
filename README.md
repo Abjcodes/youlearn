@@ -1,4 +1,7 @@
 ## YouLearn
+
+![Post](https://user-images.githubusercontent.com/42151354/219884459-486f9eeb-bd40-44cb-8755-ef6d85587ff0.png)
+
 YouLearn is a web app that allows users to take notes while watching educational videos. The app is built using Next.js and Supabase for the backend, and Tiptap for the rich text editor.
 
 ## Features
